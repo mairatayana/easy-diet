@@ -1,0 +1,52 @@
+<h1>{{all-foods
+        title="Titulo"
+        setFoodBox=(action "setEnableFood")
+    }}</h1><!--pegando do componente--> <!--setEnableFood-->
+
+<h1>Pegando titulo direto do controller: {{title}}</h1> <!--pegando do controller-->
+
+{{#each model as |food|}} <!--pegando do model que está dentro do route (aquele model(){} criado)-->
+    <p>{{food.name}}: {{food.energy}}kcal</p>
+    <p>Nutrition Facts:</p>
+    <ul>
+        {{#each food.nutritionFacts as |Nutrition|}}
+            <li>Carboidratos:  {{Nutrition.carboidratos}}kcal</li> 
+            <li>Gorduras Totais: {{Nutrition.gordurasTotais}}kcal</li>
+            <li>Sodio: {{Nutrition.sodio}}kcal</li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>Sorry, no foods available</p>
+{{/each}}
+
+<p>Pegando do Controller o options: {{options}}</p><!--pegando do controller-->
+
+<p>Pegando do Controller o objeto: {{obj.item}}</p><!--pegando do controller-->
+
+<p>{{input value="Alimento por input"}}</p>
+
+<p>{{input placeholder="Digite seu nome" type="text" value=testeInput}}</p>{{testeInput}} <!--bind da propriedade automático-->
+
+<p>{{input type="checkbox" name="enabledFood" checked=enabledFood}}{{enabledFood}}</p>
+
+<button {{action "setEnableFood"}}>EnableFood</button>
+
+{{textarea value=textAreaTest cols="80" rows="6"}}
+
+<h4>Editando uma lista de alimentos usando serviços</h4>
+{{input type="text" value=itemName}}
+
+<button {{action "addFood" itemName}}>Adiciona</button>
+
+<ul>
+    {{#each foodEdit.foods as |food|}}
+       <li> {{food}}
+        <button {{action "remover" food}}>Remover</button> </li>
+    {{/each}}
+</ul>
+
+<p>{{capitalize "Meu texto capitalizado"}}</p>
+
+<!-- {{debuger}} para no ponto que ele está. Mas dá para usar o inspect do navegador e -->
+
+{{outlet}}

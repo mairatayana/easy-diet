@@ -1,0 +1,16 @@
+{{#if title}}
+    <p>O título é: {{title}}</p>
+{{else}}
+    <p>Pagina sem título</p>
+{{/if}}
+
+<p>Título atual: {{title}}</p>
+
+<button {{action "showTitle"}}>Clica aqui!</button>
+
+<p>Novo título: {{newTitle}}</p>
+
+<p>{{input placeholder="Edite o título" type="text" value=customTitle}}</p>
+<button {{action "showCustomTitle" customTitle}}>Trocar o título</button>
+
+<button {{action setFoodBox}}>Enable Food</button>
